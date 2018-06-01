@@ -1,0 +1,6 @@
+org\feego\oauth2\resources\common\RestAuthenticationEntryPoint.class
+org\feego\oauth2\resources\service\DemoService.class
+org\feego\oauth2\resources\dao\DemoDao.class
+org\feego\oauth2\resources\Application.class
+org\feego\oauth2\resources\repo\ItemsMapper.class
+org\feego\oauth2\resources\config\ResourceServerConfigure.class
