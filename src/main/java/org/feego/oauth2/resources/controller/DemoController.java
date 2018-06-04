@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="/api",method=RequestMethod.POST,produces="application/json;charset=utf-8")
+@RequestMapping(method=RequestMethod.POST,produces="application/json;charset=utf-8")
 public class DemoController {
 	private final Logger logger=LoggerFactory.getLogger(DemoController.class);
 	
@@ -20,8 +20,14 @@ public class DemoController {
 	private DemoService svr;
 	
 	
-	@RequestMapping(value="/item")
-	public Map<String,Object> getItem(@RequestParam  Long id){
+	@RequestMapping(value="/client/item")
+	public Map<String,Object> getClientItem(@RequestParam  Long id){
+		Map<String,Object> resp=svr.getItem(id);
+		return resp;
+	}
+	
+	@RequestMapping(value="/user/item")
+	public Map<String,Object> getUserItem(@RequestParam  Long id){
 		Map<String,Object> resp=svr.getItem(id);
 		return resp;
 	}

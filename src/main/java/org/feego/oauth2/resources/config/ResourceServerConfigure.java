@@ -34,8 +34,8 @@ public class ResourceServerConfigure implements ResourceServerConfigurer {
 		http
 			.authorizeRequests()
 				.antMatchers("/h2-console/**").permitAll()
-				.antMatchers("/api/**").hasAuthority("TRUSTED_CLIENT") //需要和clientdetails中的authorities一致
-				.antMatchers("/api/**").hasRole("USER")	//在grant_type为password时，需要和Users中的role相一致
+				.antMatchers("/client/**").hasAuthority("TRUSTED_CLIENT") //需要和clientdetails中的authorities一致
+				.antMatchers("/user/**").hasRole("USER")	//在grant_type为password时，需要和Users中的role相一致，如果为client_credentials方式时，不要增加对role的限制，否则将无法访问
 				.anyRequest().authenticated()
 			.and()
 				.headers().frameOptions().disable();
